@@ -23,19 +23,19 @@ public class TelcomUser {
  			cal.add(Calendar.HOUR, - new Random().nextInt(10));
  			long timeStart = cal.getTimeInMillis();
  			long timeEnd = timeStart + 60000 + new Random().nextInt(600000);
-			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ hhÊ±mm·ÖssÃë");
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥ hhæ—¶mmåˆ†ssç§’");
  			this.callTo = getCallToPhoneNumber();
- 			this.singleRecord.put("Ö÷½Ğ", this.phoneNumber);
- 			this.singleRecord.put("¿ªÊ¼Ê±¼ä",simpleDateFormat.format(timeStart));
- 			this.singleRecord.put("½áÊøÊ±¼ä",simpleDateFormat.format(timeEnd));
- 			this.singleRecord.put("±»½ĞºÅÂë", this.callTo);
- 			this.singleRecord.put("¼Æ·Ñ", this.accountFee(timeStart,timeEnd));
+ 			this.singleRecord.put("ä¸»å«", this.phoneNumber);
+ 			this.singleRecord.put("å¼€å§‹æ—¶é—´",simpleDateFormat.format(timeStart));
+ 			this.singleRecord.put("ç»“æŸæ—¶é—´",simpleDateFormat.format(timeEnd));
+ 			this.singleRecord.put("è¢«å«å·ç ", this.callTo);
+ 			this.singleRecord.put("è®¡è´¹", this.accountFee(timeStart,timeEnd));
  			this.communicationRecords.add(this.singleRecord);
  			this.treeMapCallToAndFee.put(this.callTo, this.accountFee(timeStart, timeEnd));
  		}
      }
      private String getCallToPhoneNumber() {
- 		return "1380372010" + String.valueOf(new Random().nextInt(10));
+ 		return "15939527476" + String.valueOf(new Random().nextInt(10));
  	}
      private String accountFee(long timeStart, long timeEnd) {
  		double feePerMinute = 0.2;
@@ -47,7 +47,7 @@ public class TelcomUser {
      void printDetails() {
     	 Enumeration itRecord = this.communicationRecords.elements();
  		 while(itRecord.hasMoreElements()) {
- 			System.out.println("---------"+"Í¨»°¼ÇÂ¼·Ö¸îÏß"+"---------");
+ 			System.out.println("---------"+"é€šè¯è®°å½•åˆ†å‰²çº¿"+"---------");
  			this.singleRecord = ((LinkedHashMap)itRecord.nextElement());
  			Set keySet = this.singleRecord.keySet();
  			Iterator itKey = keySet.iterator();
@@ -62,7 +62,7 @@ public class TelcomUser {
      void printDetails() {
     	 Iterator itRencords = this.communicationRecords.iterator();
     	 while(itRencords.hasNext()) {
-    		 System.out.println("--------"+"Í¨»°¼ÇÂ¼"+"--------");
+    		 System.out.println("--------"+"é€šè¯è®°å½•"+"--------");
     		 this.singleRecord = ((HashMap)itRencords.next());
     		 Set entrySet = this.singleRecord.entrySet();
     		 Iterator itEntry = entrySet.iterator();
@@ -75,7 +75,7 @@ public class TelcomUser {
     	 }
      }
      void printCallToAndFee() {
-    	 System.out.println("---"+"±»½ĞºÅÂë"+" : "+"»°·Ñ"+"---");
+    	 System.out.println("---"+"è¢«å«å·ç "+" : "+"è¯è´¹"+"---");
     	 Iterator it = this.treeMapCallToAndFee.entrySet().iterator();
     	 while(it.hasNext()) {
     		 Map.Entry entry=(Map.Entry)it.next();
